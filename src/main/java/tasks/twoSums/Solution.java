@@ -1,12 +1,14 @@
 package tasks.twoSums;
 
-import java.util.Arrays;
-
 class Solution {
-    public int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
-        long count = Arrays.stream(hours)
-               .filter(x -> x > target)
-                .count();
-        return (int)count;
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[]{};
     }
 }
